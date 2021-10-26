@@ -4,6 +4,15 @@ const mediaHandler = require('./mediaResponses');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 // console.log(index);
+
+const { MongoClient } = require('mongodb');
+const uri = "mongodb+srv://tfire09:Facetime217!@cluster0.qga9p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
 const onRequest = (request, response) => {
   const { url } = request;
 
