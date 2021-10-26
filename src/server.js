@@ -2,7 +2,7 @@ const http = require('http');
 const htmlHandler = require('./htmlResponses');
 const mediaHandler = require('./mediaResponses');
 
-const port = process.env.PORT || process.env.NODE_PORT || 3000;
+const port = process.env.PORT || process.env.NODE_PORT || process.env.MONGODB_URI|| 3000;
 // console.log(index);
 
 const { MongoClient } = require('mongodb');
