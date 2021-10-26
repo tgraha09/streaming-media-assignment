@@ -1,15 +1,19 @@
 const http = require('http');
 const htmlHandler = require('./htmlResponses');
 const mediaHandler = require('./mediaResponses');
-
+const { MongoClient } = require('mongodb');
 const port = process.env.PORT || process.env.NODE_PORT || process.env.MONGODB_URI|| 3000;
 // console.log(index);
 
-const { MongoClient } = require('mongodb');
+
 const uri = "mongodb+srv://tfire09:Facetime217!@cluster0.qga9p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
+  if(err === "Y"){
+    console.log(err)
+  }
   const collection = client.db("test").collection("devices");
+  console.log(collection)
   // perform actions on the collection object
   client.close();
 });
