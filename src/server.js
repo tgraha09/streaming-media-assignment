@@ -6,17 +6,7 @@ const port = process.env.PORT || process.env.NODE_PORT || process.env.MONGODB_UR
 // console.log(index);
 
 
-const uri = "mongodb+srv://tfire09:Facetime217!@cluster0.qga9p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  if(err === "Y"){
-    console.log(err)
-  }
-  const collection = client.db("test").collection("devices");
-  console.log(collection)
-  // perform actions on the collection object
-  client.close();
-});
+
 const onRequest = (request, response) => {
   const { url } = request;
 
